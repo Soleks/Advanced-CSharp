@@ -1,13 +1,8 @@
-﻿using System;
-using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
-namespace StarGame
+namespace SplashScreen
 {
-    class Star : BaseObject
+    class Star : Base
     {
         public Star(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
@@ -15,14 +10,14 @@ namespace StarGame
 
         public override void Draw()
         {
-            Game.buffer.Graphics.DrawLine(
+            SplashScreen.Buffer.Graphics.DrawLine(
                 Pens.White, 
                 pos_.X, 
                 pos_.Y, 
                 pos_.X + size_.Width, 
                 pos_.Y + size_.Height);
 
-            Game.buffer.Graphics.DrawLine(
+            SplashScreen.Buffer.Graphics.DrawLine(
                 Pens.White, 
                 pos_.X + size_.Width,
                 pos_.Y, pos_.X, 
@@ -35,7 +30,7 @@ namespace StarGame
 
             if (pos_.X < 0)
             {
-                pos_.X = Game.Width + size_.Width;
+                pos_.X = SplashScreen.Width + size_.Width;
             }
         }
     }

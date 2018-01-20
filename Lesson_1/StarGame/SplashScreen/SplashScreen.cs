@@ -1,27 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace StarGame
+namespace SplashScreen
 {
-    static class Game
+    class SplashScreen
     {
         private static BufferedGraphicsContext context_;
-        public static BufferedGraphics buffer;
-        public static BaseObject[] _objs;
+        private static BufferedGraphics _buffer;
+        public static Base[] _objs;
 
         public static int Width { get; set; }
         public static int Height { get; set; }
         private static Random random = new Random();
+        private static Player player;
 
-        static Game()
+
+        public static BufferedGraphics Buffer
         {
-        }      
-        
+            get { return _buffer; }
+        }
+
+        public static Player Player
+        {
+            get{ return player; }    
+        }
+
+        public SplashScreen()
+        {
+
+        }
+
         public static void Init(Form form)
         {
             Graphics graphics;
@@ -36,7 +45,8 @@ namespace StarGame
             Width = form.Width;
             Height = form.Height;
 
-            buffer = context_.Allocate(graphics, new Rectangle(0, 0, Width, Height));
+            _buffer = context_.Allocate(
+                graphics, new Rectangle(0, 0, Width, Height));
 
             Load();
 
@@ -53,22 +63,26 @@ namespace StarGame
 
         public static void Draw()
         {
-            buffer.Graphics.Clear(Color.Black);
-            foreach (BaseObject obj in _objs)
+            _buffer.Graphics.Clear(Color.Black);
+            foreach (Base obj in _objs)
                 obj.Draw();
 
-            buffer.Render();
+            player.Draw();
+
+            _buffer.Render();
         }
 
         public static void Update()
         {
-            foreach (BaseObject obj in _objs)
+            foreach (Base obj in _objs)
                 obj.Update();
         }
 
         public static void Load()
         {
-            _objs = new BaseObject[30];
+            _objs = new Base[30];
+
+            player = new Player(new Point(Width/2, Height/2), new Point(10, 10), new Size(20,20));
 
             for (int i = 0; i < _objs.Length; i++)
             {
