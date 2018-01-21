@@ -12,12 +12,13 @@ namespace SplashScreen
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SplashScreen.Init(this);
+            SplashScreen.Screen();
         }
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1_Load(sender, e);
+            SplashScreen.Init(this);
+            //Form1_Load(sender, e);
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)

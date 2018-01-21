@@ -32,7 +32,7 @@ namespace SplashScreen
             {
                 pos_.Y = pos_.Y - dir_.Y;
 
-                if (pos_.Y  < 0)
+                if (pos_.Y < 0)
                 {
                     pos_.Y = SplashScreen.Height + size_.Height;
                 }
@@ -56,6 +56,20 @@ namespace SplashScreen
                 {
                     pos_.X = 0;
                 }
+            }
+        }
+
+        public override void Draw()
+        {
+            try
+            {
+                Image image = Image.FromFile(@".\Pic\StarShip.png");
+
+                SplashScreen.Buffer.Graphics.DrawImage(image, 0, 30);
+
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
     }

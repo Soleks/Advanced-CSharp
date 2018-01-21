@@ -14,7 +14,7 @@ namespace SplashScreen
         public static int Height { get; set; }
         private static Random random = new Random();
         private static Player player;
-
+        private static Image image;
 
         public static BufferedGraphics Buffer
         {
@@ -23,12 +23,26 @@ namespace SplashScreen
 
         public static Player Player
         {
-            get{ return player; }    
+            get { return player; }
         }
 
         public SplashScreen()
         {
+            
+        }
 
+        public static void Screen()
+        {
+            try
+            {
+                image = Image.FromFile(@".\Pic\Image.png");
+
+                SplashScreen.Buffer.Graphics.DrawImage(image, 0, 30);
+
+            } catch (Exception e)
+            {
+                throw new Exception("Файл не найден {0}", e);
+            }
         }
 
         public static void Init(Form form)
