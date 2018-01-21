@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Employee
 {
-    abstract class Base
+    abstract class Base : IComparable
     {
         private double fixedRate_;
 
@@ -17,6 +17,20 @@ namespace Employee
 
         protected Base()
         {
+        }
+
+        public int CompareTo(object obj)
+        {
+            Base temp = obj as Base;
+
+            if (temp != null)
+            {
+                return FixRate.CompareTo(temp.FixRate);
+            }
+            else
+            {
+                throw new Exception("Невозможно сравнить два объекта");
+            }
         }
 
         protected Base(double fixedRate)

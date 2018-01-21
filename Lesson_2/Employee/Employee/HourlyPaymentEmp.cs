@@ -6,22 +6,10 @@ using System.Threading.Tasks;
 
 namespace Employee
 {
-    class HourlyPaymentEmp : Base, IComparable
+    class HourlyPaymentEmp : Base
     {
         public HourlyPaymentEmp(double fixedRate) : base(fixedRate)
         {
-        }
-
-        public int CompareTo(object obj)
-        {
-            HourlyPaymentEmp temp = obj as HourlyPaymentEmp;
-
-            if (temp != null)
-            {
-                return FixRate.CompareTo(temp.FixRate);
-            }
-
-            throw new Exception("Невозможно сравнить два объекта");
         }
 
         public override double Payment()

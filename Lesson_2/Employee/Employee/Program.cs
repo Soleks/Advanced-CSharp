@@ -23,6 +23,8 @@ namespace Employee
 
             Console.WriteLine("Fixed Payment {0}", fixEmp.Payment());
             Console.WriteLine("Hourly Payment {0}", hourlyEmp.Payment());
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             //б) Создать на базе абстрактного класса массив сотрудников и заполнить его.
 
@@ -37,7 +39,11 @@ namespace Employee
             for (int j = obj.Length/2; j < obj.Length; j++)
             {
                 obj[j] = new HourlyPaymentEmp(rnd.Next(50, 500));
-            }       
+            }
+
+            //в) **Реализовать интерфейсы для возможности сортировки массива используя Array.Sort().
+
+            Array.Sort(obj);
 
             foreach (var g in obj)
             {
@@ -45,20 +51,22 @@ namespace Employee
                 {
                     Console.WriteLine("Fixed Payment {0}", g.Payment());
 
-                } else
+                }
+            }
+
+            foreach (var g in obj)
+            {
+                if (g is FixedPaymetEmp)
                 {
                     Console.WriteLine("Hourly Payment {0}", g.Payment());
                 }
             }
 
-            //в) **Реализовать интерфейсы для возможности сортировки массива используя Array.Sort().
-
-            //Array.Sort(obj);
-
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             //г) ***Создать класс содержащий массив сотрудников и реализовать возможность вывода
             //данных с использованием foreach.
-
 
             EmpContainer emp = new EmpContainer();
 
