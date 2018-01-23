@@ -9,7 +9,6 @@ namespace StarGame
         private static BufferedGraphicsContext context_;
         private static BufferedGraphics _buffer;
         public static Base[] _objs;
-        private static Bullet _bullet;
         private static Asteroid[] _asteroids;
 
         public static int Width { get; set; }
@@ -92,7 +91,12 @@ namespace StarGame
             }
 
             player.Draw();
-            _bullet.Draw();
+
+            if (player.Bullet != null)
+            {
+                player.Bullet.Draw();
+            }
+
             _buffer.Render();
         }
 
@@ -103,22 +107,39 @@ namespace StarGame
                 obj.Update();
             }
 
-            foreach (Asteroid a in _asteroids)
+            var rnd = new Random();
+
+            for (int i = 0; i < _asteroids.Length; i++)
             {
-                a.Update();
-                if (a.Collision(_bullet)) { System.Media.SystemSounds.Hand.Play(); }
+                _asteroids[i].Update();
+
+                if (player.Bullet != null &&
+                    (_asteroids[i].Collision(player.Bullet) || player.Bullet.X >= Width))
+                {
+                    player.Bullet = null;
+                    int r = rnd.Next(5, 50);
+                    _asteroids[i] = new Asteroid(
+                        new Point(Width, rnd.Next(0, StarGame.Height)), 
+                        new Point(-r / 5, r), 
+                        new Size(r, r));
+                }
             }
 
-            _bullet.Update();
+            if (player.Bullet != null)
+            {
+                player.Bullet.Update();
+            }
         }
 
         public static void Load()
         {
             _objs = new Base[30];
-            _bullet = new Bullet(new Point(0, 200), new Point(5, 0), new Size(4, 1));
             _asteroids = new Asteroid[3];
             var rnd = new Random();
-            player = new Player(new Point(Width/2, Height/2), new Point(10, 10), new Size(20,20));
+            player = new Player(
+                new Point(Width/2, Height/2), 
+                new Point(10, 10), 
+                new Size(20,20));
 
             for (int i = 0; i < _objs.Length; i++)
             {
@@ -129,8 +150,10 @@ namespace StarGame
             for (var i = 0; i < _asteroids.Length; i++)
             {
                 int r = rnd.Next(5, 50);
-                _asteroids[i] = new Asteroid(new Point(Width, rnd.Next(0, StarGame.Height)), new Point(-r / 5, r), new
-                Size(r, r));
+                _asteroids[i] = new Asteroid(
+                    new Point(Width, rnd.Next(0, StarGame.Height)), 
+                    new Point(-r / 5, r), 
+                    new Size(r, r));
             }        }
     }
 }

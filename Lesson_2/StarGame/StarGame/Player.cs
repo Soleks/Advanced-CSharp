@@ -5,11 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+
 
 namespace StarGame
 {
     class Player : Base
     {
+        private static Bullet _bullet;
+
+        private const int widthPicture = 80;
+        private const int HalfHeightPicture = 34;
+
+        public Bullet Bullet
+        {
+            get
+            {
+                return _bullet;
+            }
+
+            set
+            {
+                _bullet = value;
+            }
+        }
+
         public Player(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
         }
@@ -59,10 +79,13 @@ namespace StarGame
 
         public void Shot(KeyPressEventArgs e)
         {
-            if (e.KeyChar == ' ')
+            if (e.KeyChar == ' ' && 
+                _bullet == null)
             {
-                Console.WriteLine("space");
-                System.Media.SystemSounds.Hand.Play();
+                _bullet = new Bullet(
+                    new Point(pos_.X + widthPicture, pos_.Y + HalfHeightPicture), 
+                    pos_, 
+                    new Size(4, 1));
             }
         }
 

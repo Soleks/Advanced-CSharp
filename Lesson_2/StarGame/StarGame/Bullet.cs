@@ -23,8 +23,13 @@ namespace StarGame
                 size_.Height);
         }
 
+        public int X
+        {
+            get {return  pos_.X; }
+        }      
+
         public override void Update()
         {
-            pos_.X = pos_.X + 3;
+            pos_.X = pos_.X + 40;
         }    }
 }

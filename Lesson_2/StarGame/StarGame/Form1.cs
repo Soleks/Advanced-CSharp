@@ -12,7 +12,7 @@ namespace StarGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            StarGame.Screen();
+            //StarGame.Screen();
         }
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,7 +33,8 @@ namespace StarGame
 
         private void опрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Author: Oleksenko Sergey, demo version StarGame");
+            MessageBox.Show("Author: Oleksenko Sergey, demo version StarGame." +
+                            "\r\nУпраление: \"стрелки\", огонь \"пробел\"");
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
