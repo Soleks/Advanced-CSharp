@@ -66,7 +66,7 @@ namespace StarGame
 
             if (!string.IsNullOrEmpty(logFile))
             {
-                using (StreamWriter sw = new StreamWriter(logFile))
+                using (StreamWriter sw = new StreamWriter(logFile, true))
                 {
                     DateTime date = DateTime.Now;
 
