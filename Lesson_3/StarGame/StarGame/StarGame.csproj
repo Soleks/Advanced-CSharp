@@ -65,6 +65,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="GameLogEventArgs.cs" />
+    <Compile Include="RepairKit.cs" />
     <Compile Include="Star.cs" />
     <Compile Include="StarGame.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -12,11 +12,39 @@ namespace StarGame
 {
     class Player : Base
     {
+        public static event Message MessageDie;        public void Die()
+        {
+            MessageDie?.Invoke();
+        }
         private static Bullet _bullet;
 
         private const int WIDTH_PICTURE = 80;
         private const int HALF_HEIGHT_PICTURE = 34;
         private int _score;
+        private const int FULL_ENERGY = 100; 
+        private int _energy = FULL_ENERGY;
+
+        public int Energy
+        {
+            get { return _energy; }
+
+            set
+            {
+                if (_energy + value >= FULL_ENERGY)
+                {
+                    _energy = FULL_ENERGY;
+
+                } else
+                {
+                    _energy += value;
+                }
+            }
+        }
+
+        public void EnergyLow(int n)
+        {
+            _energy -= n;
+        }
 
         public Bullet Bullet
         {
@@ -97,7 +125,7 @@ namespace StarGame
                 _bullet = new Bullet(
                     new Point(pos_.X + WIDTH_PICTURE, pos_.Y + HALF_HEIGHT_PICTURE), 
                     pos_, 
-                    new Size(4, 1));
+                    new Size(10, 5));
             }
         }
 

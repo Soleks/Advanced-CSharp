@@ -4,6 +4,8 @@ namespace StarGame
 {
     abstract class Base : ICollision
     {
+
+        public delegate void Message();
         protected Point pos_;
         protected Point dir_;
         protected Size size_;      

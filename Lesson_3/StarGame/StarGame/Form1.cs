@@ -14,6 +14,8 @@ namespace StarGame
         {
             //StarGame.Screen();
             label1.Hide();
+            label2.Hide();
+            timer1.Enabled = true;
         }
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -21,6 +23,8 @@ namespace StarGame
             StarGame.Init(this);
             label1.Show();
             label1_TextChanged(sender, e);
+            label2.Show();
+            label2_TextChanged(sender, e);
             //Form1_Load(sender, e);
         }
 
@@ -42,13 +46,26 @@ namespace StarGame
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-             StarGame.Player.Shot(e);
+            StarGame.Player.Shot(e);
             label1_TextChanged(sender, e);
         }
 
         private void label1_TextChanged(object sender, EventArgs e)
         {
             label1.Text ="Score: " + StarGame.Player.Score.ToString();
+        }
+
+        private void label2_TextChanged(object sender, EventArgs e)
+        {
+            if (StarGame.Player != null)
+            {
+                label2.Text = "Hull: " + StarGame.Player.Energy;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label2_TextChanged(sender, e);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace StarGame
         private static BufferedGraphicsContext context_;
         private static BufferedGraphics _buffer;
         public static Base[] _objs;
-        private static Asteroid[] _asteroids;
+        private static Asteroid[] _asteroids;        private static RepairKit[] _rKit;
         public static int Width { get; set; }
         public static int Height { get; set; }
         private static Random random = new Random();
@@ -18,6 +18,8 @@ namespace StarGame
         private static Image image;
 
         private static Log log;
+
+        private static Timer timer = new Timer { Interval = 70 };
 
         public static BufferedGraphics Buffer
         {
@@ -33,6 +35,14 @@ namespace StarGame
         {
             
         }
+
+        public static void Finish()
+        {
+            timer.Stop();
+            Buffer.Graphics.DrawString("The End", new Font(FontFamily.GenericSansSerif, 60,
+            FontStyle.Underline), Brushes.White, 200, 100);
+            Buffer.Render();
+        }
 
         public static void Screen()
         {
@@ -87,8 +97,7 @@ namespace StarGame
             graphics, new Rectangle(0, 0, Width, Height));
 
             Load();
-            log.WriteLogToConsole("Info", "initialization successful", Message);
-            Timer timer = new Timer { Interval = 70 };
+            log.WriteLogToConsole("Info", "initialization successful", Message);            Player.MessageDie += Finish; 
             timer.Start();
             timer.Tick += Timer_Tick;
         }
@@ -113,7 +122,13 @@ namespace StarGame
                 obj.Draw();
             }
 
+            foreach (RepairKit rk in _rKit)
+            {
+                rk.Draw();
+            }
+
             player.Draw();
+            Buffer.Graphics.DrawString("Energy:" + player.Energy, SystemFonts.DefaultFont, Brushes.White, 0,0);
 
             if (player.Bullet != null)
             {
@@ -130,7 +145,30 @@ namespace StarGame
                 obj.Update();
             }
 
+            foreach (RepairKit rk in _rKit)
+            {
+                rk.Update();
+            }
+
             var rnd = new Random();
+
+            for (int i = 0; i < _rKit.Length; i++)
+            {
+                if (player.Collision(_rKit[i]))
+                {
+                    log.WriteLogToConsole("Game event", "repear", Message);
+
+                    var eTemp = player.Energy;
+
+                    player.Energy = _rKit[i].Repair;
+
+                    int r = rnd.Next(5, 50);
+                    _rKit[i] = new RepairKit(
+                               new Point(Width, rnd.Next(0, rnd.Next(0, Height))),
+                               new Point(-r / 5, r),
+                               new Size(r, r)); ;
+                }
+            }
 
             for (int i = 0; i < _asteroids.Length; i++)
             {
@@ -140,6 +178,25 @@ namespace StarGame
                     player.Bullet.X >= Width)
                 {
                     player.Bullet = null;
+                }
+
+
+                if (player.Collision(_asteroids[i]))
+                {
+                    var r = new Random();
+
+                    log.WriteLogToConsole("Game event", "collision", Message);
+
+                    player?.EnergyLow(r.Next(1,10));
+
+                    Console.WriteLine(player.Energy);
+
+                    if (player.Energy <= 0)
+                    {
+                        log.WriteLogToConsole("Game event", "starship destroy", Message);
+
+                        player.Die();
+                    }
                 }
 
                 if (player.Bullet != null &&
@@ -156,7 +213,7 @@ namespace StarGame
 
                     player.IncrementScore();
                 }
-            }
+             }
 
             if (player.Bullet != null)
             {
@@ -164,8 +221,23 @@ namespace StarGame
             }
         }
 
+        private static void CreateRepairKit()
+        {
+            var rnd = new Random();
+
+            for (int i = 0; i < _rKit.Length; i++)
+            {
+                int r = rnd.Next(5, 50);
+                _rKit[i] = new RepairKit(
+                new Point(Width, rnd.Next(0, rnd.Next(0, Height))),
+                new Point(-r / 5, r),
+                new Size(r, r));
+            }
+        }
+
         public static void Load()
         {
+            _rKit = new RepairKit[2];
             _objs = new Base[30];
             _asteroids = new Asteroid[3];
             var rnd = new Random();
@@ -186,6 +258,13 @@ namespace StarGame
                 _asteroids[i] = new Asteroid(
                     new Point(Width, rnd.Next(0, StarGame.Height)), 
                     new Point(-r / 5, r), 
+                    new Size(r, r));
+            }            for (int i = 0; i < _rKit.Length; i++)
+            {
+                int r = rnd.Next(5, 50);
+                _rKit[i] = new RepairKit(
+                    new Point(Width, rnd.Next(0, rnd.Next(0, Height))),
+                    new Point(-r / 5, r),
                     new Size(r, r));
             }        }
     }

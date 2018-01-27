@@ -15,8 +15,8 @@ namespace StarGame
 
         public override void Draw()
         {
-            StarGame.Buffer.Graphics.DrawRectangle(
-                Pens.OrangeRed, 
+            StarGame.Buffer.Graphics.FillRectangle(
+                Brushes.OrangeRed, 
                 pos_.X, 
                 pos_.Y, 
                 size_.Width, 
