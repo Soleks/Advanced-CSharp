@@ -117,8 +117,7 @@ namespace StarGame
                 {
                     pos_.Y = 0;
                 }
-            }
-
+            } else
             if (e.KeyData == Keys.Up)
             {
                 pos_.Y = pos_.Y - dir_.Y;
@@ -127,8 +126,7 @@ namespace StarGame
                 {
                     pos_.Y = StarGame.Height + size_.Height;
                 }
-            }
-
+            } else
             if (e.KeyData == Keys.Left)
             {
                 pos_.X = pos_.X - dir_.X;
@@ -137,8 +135,7 @@ namespace StarGame
                 {
                     pos_.X = StarGame.Width + size_.Width;
                 }
-            }
-
+            } else
             if (e.KeyData == Keys.Right)
             {
                 pos_.X = pos_.X + dir_.X;
