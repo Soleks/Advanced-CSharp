@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-
 
 namespace StarGame
 {
@@ -15,14 +10,18 @@ namespace StarGame
         public static event Message MessageDie;        public void Die()
         {
             MessageDie?.Invoke();
-        }
-        private static Bullet _bullet;
+        }
 
         private const int WIDTH_PICTURE = 80;
         private const int HALF_HEIGHT_PICTURE = 34;
-        private int _score;
-        private const int FULL_ENERGY = 100; 
+        private const int FULL_ENERGY = 100;
+        private const string PATH_PICTURE = @".\Pic\StarShip.png";
+        private const string PATH_HIT = @".\Media\Hit_Hurt2.wav";
+
         private int _energy = FULL_ENERGY;
+        private int _score;
+        private static Bullet _bullet;
+        private SoundPlayer _simpleSound;
 
         public int Energy
         {
@@ -62,6 +61,15 @@ namespace StarGame
         public Player(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
             _score = 0;
+
+            try
+            {
+                _simpleSound = new SoundPlayer(PATH_HIT);
+
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public int Score
@@ -122,6 +130,8 @@ namespace StarGame
             if (e.KeyChar == ' ' && 
                 _bullet == null)
             {
+                _simpleSound.Play();
+
                 _bullet = new Bullet(
                     new Point(pos_.X + WIDTH_PICTURE, pos_.Y + HALF_HEIGHT_PICTURE), 
                     pos_, 
@@ -133,7 +143,7 @@ namespace StarGame
         {
             try
             {
-                Image image = Image.FromFile(@".\Pic\StarShip.png");
+                Image image = Image.FromFile(PATH_PICTURE);
 
                 StarGame.Buffer.Graphics.DrawImage(image, pos_.X, pos_.Y);
 

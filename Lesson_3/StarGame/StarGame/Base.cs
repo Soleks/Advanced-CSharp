@@ -4,7 +4,6 @@ namespace StarGame
 {
     abstract class Base : ICollision
     {
-
         public delegate void Message();
         protected Point pos_;
         protected Point dir_;
@@ -22,15 +21,6 @@ namespace StarGame
         public bool Collision(ICollision obj) => obj.Rect.IntersectsWith(this.Rect);      
 
         public abstract void Draw();
-
-        //{
-        //    StarGame.Buffer.Graphics.DrawEllipse(
-        //        Pens.White, 
-        //        pos_.X, 
-        //        pos_.Y, 
-        //        size_.Width, 
-        //        size_.Height);
-        //}
 
         public virtual void Update()
         {
