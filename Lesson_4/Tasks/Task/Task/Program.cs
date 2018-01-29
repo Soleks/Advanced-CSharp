@@ -33,7 +33,7 @@ namespace Task
 
                 if (count > 1)
                 {
-                    Console.WriteLine($"элемент {item} встрчается {count} раз");
+                    Console.WriteLine($"элементы int {item} встрчается {count} раз");
                 }
             }
 
@@ -52,7 +52,6 @@ namespace Task
                 new Point(2, 1)
             };
 
-
             Console.WriteLine();
             Console.WriteLine();
 
@@ -62,7 +61,7 @@ namespace Task
 
                 if (count > 1)
                 {
-                    Console.WriteLine($"элемент {item} встрчается {count} раз");
+                    Console.WriteLine($"элементы Point {item} встрчается {count} раз");
                 }
             }
 
@@ -71,6 +70,35 @@ namespace Task
 
             //в)*используя Linq.
 
+            //целые числа
+            var li = from lint in listInt
+                     group lint by lint into g
+                     where g.Count() > 1
+                     select new { Element = g.Key, Counter = g.Count() };
+
+            foreach (var item in li)
+            {
+                Console.WriteLine($"элементы int {item}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            //объекты Point
+            var lp = from liPoint in listPoint
+                     group liPoint by liPoint into g
+                     where g.Count() > 1
+                     select new { Element = g.Key, Counter = g.Count() };
+
+            foreach (var item in lp)
+            {
+                Console.WriteLine($"элементы Point {item}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+   
             //3. * Дан фрагмент программы:
 
             Dictionary<string, int> dict = new Dictionary<string, int>()
@@ -89,6 +117,11 @@ namespace Task
             {
                 Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
             }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            //б) *Развернуть обращение к OrderBy с использованием делегата Predicate<T>.
 
             Console.ReadKey();
         }    
