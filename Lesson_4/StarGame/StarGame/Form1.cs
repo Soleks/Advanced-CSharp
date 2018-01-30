@@ -44,7 +44,7 @@ namespace StarGame
 
         private void опрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Author: Oleksenko Sergey, demo version StarGame." +
+            MessageBox.Show("Author: Oleksenko Sergey, StarGame version 1.0 ." +
                             "\r\nУпраление: \"стрелки\", огонь \"пробел\"");
         }
 
