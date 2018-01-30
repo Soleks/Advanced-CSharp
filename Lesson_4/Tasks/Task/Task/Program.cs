@@ -70,11 +70,16 @@ namespace Task
 
             //в)*используя Linq.
 
+            var li = listInt.GroupBy(x => x)
+                .Where(g => g.Count() > 1)
+                .Select(y => new { Element = y.Key, Counter = y.Count() })
+                .ToList();
+
             //целые числа
-            var li = from lint in listInt
-                     group lint by lint into g
-                     where g.Count() > 1
-                     select new { Element = g.Key, Counter = g.Count() };
+            //var li = from lint in listInt
+            //         group lint by lint into g
+            //         where g.Count() > 1
+            //         select new { Element = g.Key, Counter = g.Count() };
 
             foreach (var item in li)
             {
@@ -85,10 +90,15 @@ namespace Task
             Console.WriteLine();
 
             //объекты Point
-            var lp = from liPoint in listPoint
-                     group liPoint by liPoint into g
-                     where g.Count() > 1
-                     select new { Element = g.Key, Counter = g.Count() };
+            var lp = listPoint.GroupBy(x => x)
+                .Where(g => g.Count() > 1)
+                .Select(y => new { Element = y.Key, Counter = y.Count() })
+                .ToList();
+
+            //var lp = from liPoint in listPoint
+            //         group liPoint by liPoint into g
+            //         where g.Count() > 1
+            //         select new { Element = g.Key, Counter = g.Count() };
 
             foreach (var item in lp)
             {
@@ -111,9 +121,9 @@ namespace Task
 
             //а) Свернуть обращение к OrderBy с использованием лямбда - выражения
 
-            var s = dict.OrderBy(x => x.Value);
+            var lambdaDict = dict.OrderBy(x => x.Value);
 
-            foreach (var pair in s)
+            foreach (var pair in lambdaDict)
             {
                 Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
             }
@@ -122,6 +132,14 @@ namespace Task
             Console.WriteLine();
 
             //б) *Развернуть обращение к OrderBy с использованием делегата Predicate<T>.
+
+            var delegateDict = dict.OrderBy(delegate (
+                KeyValuePair<string, int> x) { return x.Value; });
+
+            foreach (var pair in delegateDict)
+            {
+                Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+            }
 
             Console.ReadKey();
         }    
