@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Activated="Window_Activated">
     <Grid Name="MainGrid" Background="AliceBlue">
         <Button Margin="10" Height="25" Width="70" VerticalAlignment="Bottom" Click="Button_Click">Add</Button>
-        <ListBox Name="lbEmployees" Margin="10" VerticalAlignment="Top" Height="250" SelectionMode="Single"
-                SelectionChanged="lbEmployee_SelectionChanged">
+        <ListBox Name="lbEmployees" Margin="10" VerticalAlignment="Top" Height="250" SelectionMode="Single">
         </ListBox>
     </Grid>
 </Window>

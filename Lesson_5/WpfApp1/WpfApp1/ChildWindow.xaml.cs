@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfApp1
 {
@@ -24,7 +13,22 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        public string ViewModel{ get; set; }
+        public string ViewModel { get; set; }
+
+        public string Department
+        {
+            get { return _department; }
+        }
+
+        public string LastName
+        {
+            get { return _lastName; }
+        }
+
+        public string EmpName
+        {
+            get { return _name; }
+        }
 
         private string _department;
         private string _lastName;
@@ -32,42 +36,35 @@ namespace WpfApp1
 
         public void ShowViewModel()
         {
-
-        }
-
-        private void TextBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Console.WriteLine(e.ToString());
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _department = e.Source.ToString();
-            Console.WriteLine(e.Source.ToString());
+            _department = dep.Text;
         }
 
         private void Button_Click_Ok(object sender, RoutedEventArgs e)
         {
-            
-            
-            Console.WriteLine( "Ok " + e.Source.ToString());
+            Close();
         }
 
         private void Button_Click_Abort(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Abort " + e.Source.ToString());
-            
+            _department = string.Empty;
+            _name = string.Empty;
+            _lastName = string.Empty;
+
             Close();
         }
 
         private void TextBox_TextChanged_Name(object sender, TextChangedEventArgs e)
         {
-            _name = e.Source.ToString();
+            _name = empName.Text;
         }
 
         private void TextBox_TextChanged_LastName(object sender, TextChangedEventArgs e)
         {
-            _lastName = e.Source.ToString();
+            _lastName = lastName.Text;
         }
     }
 }

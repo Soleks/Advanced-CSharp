@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="ChildWindow" Height="300" Width="395.339">
     <Grid>
-        <TextBox AcceptsReturn="True" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="23" Width="200" DataContextChanged="TextBox_DataContextChanged" TextChanged="TextBox_TextChanged" Margin="124,39,0,0" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="124,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged_Name"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="124,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged_LastName"/>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Height="31"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="23" Width="49" RenderTransformOrigin="0.7,1.34"/>
-        <Label Content="Lastname" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="25"/>
-        <Button Content="Ok" HorizontalAlignment="Left" Margin="70,210,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_Ok"/>
-        <Button Content="Abort" HorizontalAlignment="Left" Margin="237,210,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_Abort"/>
+        <TextBox AcceptsReturn="True" Name="dep" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="23" Width="200" TextChanged="TextBox_TextChanged" Margin="124,39,0,0" />
+        <TextBox HorizontalAlignment="Left" Name="empName" Height="23" Margin="124,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged_Name" />
+        <TextBox HorizontalAlignment="Left" Name="lastName" Height="23" Margin="124,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged_LastName" />
+        <Label Content="Department" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Height="31" />
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="23" Width="49" RenderTransformOrigin="0.7,1.34" />
+        <Label Content="Lastname" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="25" Width="74" />
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="70,210,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_Ok" />
+        <Button Content="Abort" HorizontalAlignment="Left" Margin="237,210,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_Abort" />
     </Grid>
 </Window>

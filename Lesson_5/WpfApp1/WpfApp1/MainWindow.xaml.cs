@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System;
 using System.Collections.ObjectModel;
-using System;
+using System.Windows;
 
 namespace WpfApp1
 {
@@ -11,16 +9,13 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Department> department = new ObservableCollection<Department>();
+        private ObservableCollection<Department> department = new ObservableCollection<Department>();
 
-        List<Employee> list = new List<Employee>();
+        private ChildWindow childWindow = new ChildWindow();
+
         public MainWindow()
         {
             InitializeComponent();
-
-            //list.Add(new Employee() { Name = "Вася", LastName = "Пупкин" });
-            //list.Add(new Employee() { Name = "Петя", LastName = "Головняк" });
-            //list.Add(new Employee() { Name = "Витя", LastName = "Круглый" });
 
             department.Add(
                 new Department("1", new Employee() { Name = "Вася", LastName = "Пупкин" }));
@@ -29,36 +24,22 @@ namespace WpfApp1
             department.Add(
                 new Department("1", new Employee() { Name = "Витя", LastName = "Круглый" }));
 
-            lbEmployees.ItemsSource = department;           
+            lbEmployees.ItemsSource = department;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ChildWindow childWindow = new ChildWindow();
+            childWindow = new ChildWindow();
             childWindow.Owner = this;
             childWindow.ViewModel = "ViewModel";
             childWindow.Show();
             childWindow.ShowViewModel();
         }
 
-        public void Save(string department, string name, string lastName)
+        private void Window_Activated(object sender, EventArgs e)
         {
-            Console.WriteLine($"{department} {name} {lastName}");
+            department.Add(
+                new Department(childWindow.Department, new Employee() { Name = childWindow.EmpName, LastName = childWindow.LastName }));
         }
-
-        private void lbEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MessageBox.Show(e.AddedItems[0].ToString());
-        }
-
-        private void lbEmployee_Selected(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(e.Source.ToString());
-        }
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    department.Add(new Department("2", new Employee("Зина", "Иваноdа")));
-        //}
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WpfApp1
 {
-    class Employee
+    internal class Employee
     {
         private string _name;
         private string _lastName;
@@ -10,6 +10,7 @@
             get { return _name; }
             set { _name = value; }
         }
+
         public string LastName
         {
             get { return _lastName; }
