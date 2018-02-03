@@ -1,6 +1,6 @@
 ﻿namespace WpfApp1
 {
-    internal class Employee
+    public class Employee
     {
         private string _name;
         private string _lastName;

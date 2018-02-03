@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace WpfApp1
 {
-    internal class Department
+    public class Department
     {
         private string _name;
         private List<Employee> _employee;
@@ -16,7 +16,7 @@ namespace WpfApp1
 
         public IEnumerable<Employee> Employee => _employee;
 
-        private Department()
+        public Department()
         {
         }
 
