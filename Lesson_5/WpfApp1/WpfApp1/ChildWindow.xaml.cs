@@ -13,8 +13,6 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        public string ViewModel { get; set; }
-
         public string Department
         {
             get { return _department; }
@@ -33,10 +31,6 @@ namespace WpfApp1
         private string _department;
         private string _lastName;
         private string _name;
-
-        public void ShowViewModel()
-        {
-        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

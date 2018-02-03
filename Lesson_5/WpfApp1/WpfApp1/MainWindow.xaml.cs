@@ -20,9 +20,9 @@ namespace WpfApp1
             department.Add(
                 new Department("1", new Employee() { Name = "Вася", LastName = "Пупкин" }));
             department.Add(
-                new Department("1", new Employee() { Name = "Петя", LastName = "Головняк" }));
+                new Department("1", new Employee() { Name = "Петя", LastName = "Голованов" }));
             department.Add(
-                new Department("1", new Employee() { Name = "Витя", LastName = "Круглый" }));
+                new Department("1", new Employee() { Name = "Витя", LastName = "Круглов" }));
 
             lbEmployees.ItemsSource = department;
         }
@@ -31,9 +31,7 @@ namespace WpfApp1
         {
             childWindow = new ChildWindow();
             childWindow.Owner = this;
-            childWindow.ViewModel = "ViewModel";
             childWindow.Show();
-            childWindow.ShowViewModel();
         }
 
         private void Window_Activated(object sender, EventArgs e)
