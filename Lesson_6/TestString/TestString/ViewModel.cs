@@ -26,10 +26,12 @@ namespace TestString
             _addCommand = new ActionCommand(
                 ExecuteCommand, CanExecuteCommand));
 
-        private bool CanExecuteCommand(object obj) => TextBoxValue != string.Empty;
+        private bool CanExecuteCommand(object obj) => !string.IsNullOrEmpty(Dep) &&
+             !string.IsNullOrEmpty(EmpName) &&
+             !string.IsNullOrEmpty(EmpLastName);
 
         private void ExecuteCommand(object o) =>
-            DepEmp = _model.AddDepAndEmp("1", "1", "1");
+            DepEmp = _model.AddDepAndEmp(Dep, EmpName, EmpLastName);
 
         public ICommand RemoveCommand => _addRemoveCommand ?? (
             _addRemoveCommand = new ActionCommand(
@@ -64,6 +66,9 @@ namespace TestString
         }
 
         public string ListBoxValue { get; set; }
-        public string TextBoxValue { get; set; }
+
+        public string Dep { get; set; }
+        public string EmpName { get; set; }
+        public string EmpLastName { get; set; }
     }
 }

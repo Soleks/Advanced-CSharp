@@ -17,7 +17,7 @@
             Margin="10,41,0,0"
             VerticalAlignment="Top"
             Width="133"
-            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
+            Text ="{Binding Dep, UpdateSourceTrigger=PropertyChanged}" />
         <ListBox
             x:Name="listBox"
             HorizontalAlignment="Left"
@@ -32,7 +32,8 @@
             Margin="105,176,0,0"
             VerticalAlignment="Top"
             Width="75"
-            Command="{Binding Command}" RenderTransformOrigin="-0.578,0.462" />
+            Command="{Binding Command}"
+             RenderTransformOrigin="-0.578,0.462" />
         <Button
             Content="Remove"
             HorizontalAlignment="Left"
@@ -48,7 +49,7 @@
             Margin="194,41,0,0"
             VerticalAlignment="Top"
             Width="133"
-            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
+            Text ="{Binding EmpName, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Name="lastName"
             HorizontalAlignment="Left"
@@ -56,7 +57,7 @@
             Margin="374,41,0,0"
             VerticalAlignment="Top"
             Width="133"
-            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
+            Text ="{Binding EmpLastName, UpdateSourceTrigger=PropertyChanged}" />
         <Label Content="Name" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
         <Label Content="Lastname" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
         <Label Content="Department" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />

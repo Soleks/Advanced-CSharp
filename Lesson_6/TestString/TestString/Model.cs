@@ -21,12 +21,12 @@ namespace TestString
             string empName,
             string empLastName)
         {
-            _department.Add(
-                new Department("1", new Employee() { Name = "Вася", LastName = "Пупкин" }));
-            _department.Add(
-                new Department("1", new Employee() { Name = "Петя", LastName = "Голованов" }));
-            _department.Add(
-                new Department("1", new Employee() { Name = "Витя", LastName = "Круглов" }));
+            if (!string.IsNullOrEmpty(departName) ||  
+                !string.IsNullOrEmpty(empName) ||
+                !string.IsNullOrEmpty(empLastName))
+            {
+                
+            }
 
             _department.Add(
                 new Department(departName, new Employee() { Name = empName, LastName = empLastName }));
