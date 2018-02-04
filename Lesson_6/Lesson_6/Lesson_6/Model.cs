@@ -16,12 +16,6 @@ namespace Lesson_6
             string empName,
             string empLastName)
         {
-            if (!string.IsNullOrEmpty(departName) ||
-                !string.IsNullOrEmpty(empName) ||
-                !string.IsNullOrEmpty(empLastName))
-            {
-            }
-
             _department.Add(
                 new Department(departName, new Employee() { Name = empName, LastName = empLastName }));
 
