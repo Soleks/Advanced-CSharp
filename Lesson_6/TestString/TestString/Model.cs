@@ -21,11 +21,10 @@ namespace TestString
             string empName,
             string empLastName)
         {
-            if (!string.IsNullOrEmpty(departName) ||  
+            if (!string.IsNullOrEmpty(departName) ||
                 !string.IsNullOrEmpty(empName) ||
                 !string.IsNullOrEmpty(empLastName))
             {
-                
             }
 
             _department.Add(
