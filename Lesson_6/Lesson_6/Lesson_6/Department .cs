@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TestString
+namespace Lesson_6
 {
     public class Department
     {

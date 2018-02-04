@@ -1,4 +1,4 @@
-﻿namespace TestString
+﻿namespace Lesson_6
 {
     public class Employee
     {

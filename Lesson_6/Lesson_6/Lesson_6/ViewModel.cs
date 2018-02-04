@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 
-namespace TestString
+namespace Lesson_6
 {
     internal class ViewModel : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace TestString
+namespace Lesson_6
 {
     internal class Model
     {
@@ -9,11 +9,6 @@ namespace TestString
         public Model()
         {
             _department = new ObservableCollection<Department>();
-        }
-
-        public string Add(string TextBoxValue)
-        {
-            return TextBoxValue + Value;
         }
 
         public ObservableCollection<Department> AddDepAndEmp(
@@ -42,11 +37,6 @@ namespace TestString
             {
                 _department.RemoveAt(index);
             }
-        }
-
-        public string Value
-        {
-            get { return "****"; }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace TestString
+namespace Lesson_6
 {
     internal class ActionCommand : ICommand
     {
