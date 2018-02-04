@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace TestString
 {
-    class ViewModel : INotifyPropertyChanged
+    internal class ViewModel : INotifyPropertyChanged
     {
         private Model _model = new Model();
         private ActionCommand _addCommand;
@@ -42,9 +37,8 @@ namespace TestString
 
         private bool CanRemoveCommand(object obj) => ListBoxValue != string.Empty;
 
-        private void Remove(object o) => 
+        private void Remove(object o) =>
             _model.RemoveDepAndEmp(o);
-            
 
         public ObservableCollection<Department> DepEmp
         {
@@ -54,13 +48,12 @@ namespace TestString
             {
                 _department = value;
 
-               OnPropertyChanged(nameof(DepEmp));
+                OnPropertyChanged(nameof(DepEmp));
             }
         }
 
         public string MyValues
         {
-
             get => _result;
             set
             {
@@ -70,7 +63,7 @@ namespace TestString
             }
         }
 
-        public string ListBoxValue{get; set;}
+        public string ListBoxValue { get; set; }
         public string TextBoxValue { get; set; }
     }
 }

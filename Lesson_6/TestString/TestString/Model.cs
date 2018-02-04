@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace TestString
 {
-    class Model
+    internal class Model
     {
         private ObservableCollection<Department> _department;
 
@@ -22,8 +17,8 @@ namespace TestString
         }
 
         public ObservableCollection<Department> AddDepAndEmp(
-            string departName, 
-            string empName, 
+            string departName,
+            string empName,
             string empLastName)
         {
             _department.Add(
@@ -43,7 +38,7 @@ namespace TestString
         {
             int index;
 
-            if (int.TryParse(o.ToString(), out index) && 
+            if (int.TryParse(o.ToString(), out index) &&
                 index >= 0 && index < _department.Count)
             {
                 _department.RemoveAt(index);

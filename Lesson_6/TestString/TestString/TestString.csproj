@@ -56,15 +56,8 @@
     </ApplicationDefinition>
     <Compile Include="ActionCommand.cs" />
     <Compile Include="Department .cs" />
-    <Compile Include="Editor.xaml.cs">
-      <DependentUpon>Editor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Employee .cs" />
     <Compile Include="ViewModel.cs" />
-    <Page Include="Editor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

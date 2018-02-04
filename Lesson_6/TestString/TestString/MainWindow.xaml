@@ -7,58 +7,58 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.DataContext>
-        <local:ViewModel/>
+        <local:ViewModel />
     </Window.DataContext>
     <Grid>
-        <TextBox 
+        <TextBox
             Name="Depart"
-            HorizontalAlignment="Left" 
-            Height="30" 
-            Margin="10,41,0,0" 
+            HorizontalAlignment="Left"
+            Height="30"
+            Margin="10,41,0,0"
             VerticalAlignment="Top"
             Width="133"
-            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}"/>
-        <ListBox 
+            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
+        <ListBox
             x:Name="listBox"
-            HorizontalAlignment="Left" 
-            Height="88" 
-            Margin="10,83,0,0" 
+            HorizontalAlignment="Left"
+            Height="88"
+            Margin="10,83,0,0"
             VerticalAlignment="Top"
             Width="497"
-            ItemsSource ="{Binding DepEmp, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button 
-            Content="Add" 
-            HorizontalAlignment="Left" 
-            Margin="105,176,0,0" 
-            VerticalAlignment="Top" 
+            ItemsSource ="{Binding DepEmp, UpdateSourceTrigger=PropertyChanged}" />
+        <Button
+            Content="Add"
+            HorizontalAlignment="Left"
+            Margin="105,176,0,0"
+            VerticalAlignment="Top"
             Width="75"
-            Command="{Binding Command}" RenderTransformOrigin="-0.578,0.462"/>
-        <Button 
-            Content="Remove" 
-            HorizontalAlignment="Left" 
-            Margin="314,176,0,0" 
-            VerticalAlignment="Top" 
+            Command="{Binding Command}" RenderTransformOrigin="-0.578,0.462" />
+        <Button
+            Content="Remove"
+            HorizontalAlignment="Left"
+            Margin="314,176,0,0"
+            VerticalAlignment="Top"
             Width="75"
             Command="{Binding RemoveCommand}"
-            CommandParameter="{Binding ElementName=listBox, Path=SelectedIndex}"/>
+            CommandParameter="{Binding ElementName=listBox, Path=SelectedIndex}" />
         <TextBox
             Name="empName"
-            HorizontalAlignment="Left" 
-            Height="30" 
-            Margin="194,41,0,0" 
+            HorizontalAlignment="Left"
+            Height="30"
+            Margin="194,41,0,0"
             VerticalAlignment="Top"
             Width="133"
-            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox 
+            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
             Name="lastName"
-            HorizontalAlignment="Left" 
-            Height="30" 
-            Margin="374,41,0,0" 
+            HorizontalAlignment="Left"
+            Height="30"
+            Margin="374,41,0,0"
             VerticalAlignment="Top"
             Width="133"
-            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83"/>
-        <Label Content="Lastname" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83"/>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83"/>
+            Text ="{Binding TextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Content="Name" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
+        <Label Content="Lastname" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
+        <Label Content="Department" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
     </Grid>
 </Window>
