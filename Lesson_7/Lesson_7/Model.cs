@@ -48,8 +48,6 @@ namespace Lesson_7
             return _department;
         }
 
-
-
         public ObservableCollection<Department> Delete(object o)
         {
             Department dep = o as Department ;
