@@ -12,16 +12,13 @@ namespace Lesson_7
         private ActionCommand _addRemoveCommand;
         private ActionCommand _addToDbCommand;
         private ActionCommand _removeToDbCommand;
+        private ActionCommand _removeAllDbCommand;
 
         private ObservableCollection<Department> _department;
 
-        private string _result;
-
         public ViewModel()
         {
-            Console.WriteLine("qqqqq");
-
-            _model.Select();
+            DepEmp = _model.Select();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -46,17 +43,15 @@ namespace Lesson_7
         public ICommand RemoveCommand => _addRemoveCommand ?? (
             _addRemoveCommand = new ActionCommand(
                 Remove, CanRemoveCommand));
-        private bool CanRemoveCommand(object obj) => ListBoxValue != string.Empty;
-        private void Remove(object o) =>
-            _model.RemoveDepAndEmp(o);
+        private bool CanRemoveCommand(object obj) => DepEmp.Count > 0;
+        private void Remove(object o) => _model.RemoveDepAndEmp(o);
         
 
         public ICommand RemoveToDbCommand => _removeToDbCommand ?? (
             _removeToDbCommand = new ActionCommand(
            ExecuteRemoveFromDb, CanRemoveFromDbCommand));
-        private void ExecuteRemoveFromDb(object o) => _model.Delete(o);
-        private bool CanRemoveFromDbCommand(object obj) => true; //ListBoxValue != string.Empty;
-
+        private void ExecuteRemoveFromDb(object o) => DepEmp = _model.Delete(o);
+        private bool CanRemoveFromDbCommand(object obj) => DepEmp.Count > 0;
 
         public ICommand AddToDbCommand => _addToDbCommand ?? (
             _addToDbCommand = new ActionCommand(
@@ -66,6 +61,14 @@ namespace Lesson_7
              !string.IsNullOrEmpty(Dep) &&
              !string.IsNullOrEmpty(EmpName) &&
              !string.IsNullOrEmpty(EmpLastName);
+
+        public ICommand RemoveAllDbCommand => _removeAllDbCommand ?? (
+            _removeAllDbCommand = new ActionCommand(
+          ExecuteRemoveAllDb, CanRemoveAllDb));
+
+        private void ExecuteRemoveAllDb(object obj) => DepEmp = _model.Truncate();
+
+        private bool CanRemoveAllDb(object obj) => DepEmp.Count > 0;
 
         public ObservableCollection<Department> DepEmp
         {
@@ -79,18 +82,6 @@ namespace Lesson_7
             }
         }
 
-        //public string MyValues
-        //{
-        //    get => _result;
-        //    set
-        //    {
-        //        _result = value;
-
-        //        OnPropertyChanged(nameof(MyValues));
-        //    }
-        //}
-
-        public string ListBoxValue { get; set; }
         public string Dep { get; set; }
         public string EmpName { get; set; }
         public string EmpLastName { get; set; }

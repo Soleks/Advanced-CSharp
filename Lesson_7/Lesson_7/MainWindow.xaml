@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lesson_7"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="516.843">
+        Title="MainWindow" Height="350" Width="561.872">
     <Window.DataContext>
         <local:ViewModel />
     </Window.DataContext>
@@ -29,7 +29,7 @@
         <Button
             Content="Add"
             HorizontalAlignment="Left"
-            Margin="105,176,0,0"
+            Margin="18,182,0,0"
             VerticalAlignment="Top"
             Width="75"
             Command="{Binding AddToDbCommand}"
@@ -37,7 +37,7 @@
         <Button
             Content="Remove"
             HorizontalAlignment="Left"
-            Margin="314,176,0,0"
+            Margin="137,182,0,0"
             VerticalAlignment="Top"
             Width="75"
             Command="{Binding RemoveToDbCommand}"
@@ -61,5 +61,13 @@
         <Label Content="Name" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
         <Label Content="Lastname" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
         <Label Content="Department" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.291,-0.182" Width="83" />
+        <Button
+            Content="Remove All"
+            HorizontalAlignment="Left"
+            Margin="252,182,0,0"
+            VerticalAlignment="Top"
+            Width="75"
+            Command="{Binding RemoveAllDbCommand}"
+            RenderTransformOrigin="-0.578,0.462" />
     </Grid>
 </Window>

@@ -38,12 +38,12 @@ namespace Lesson_7
             string sqlQuery =
                $@"DELETE FROM Lesson7 WHERE Department = '{dep.DepartmentName}' AND 
                 FirstName = '{dep.Employee.First().Name}' AND 
-                LastName = '{dep.Employee.First().LastName}'";
+                LastName = '{dep.Employee.First().LastName}'";        
 
             Connect(sqlQuery);
         }
 
-        public void Select()
+        public ObservableCollection<Department> Select()
         {
             string sqlQuery =
                 @"SELECT Department, FirstName, LastName FROM Lesson7";
@@ -55,32 +55,33 @@ namespace Lesson_7
                 SqlDataReader reader =
                 command.ExecuteReader(CommandBehavior.CloseConnection);
 
-                if (reader.HasRows) // если есть данные
+                if (reader.HasRows)
                 {
-                    while (reader.Read()) // построчно считываем данные
+                    while (reader.Read())
                     {
-                        var LastName = reader["LastName"];
-                        var Department = reader["Department"];
-                        var FirstName = reader["FirstName"];
-
-                        //привести типы
-
+                        string Department = reader.GetString(0);
+                        string FirstName = reader.GetString(1);
+                        string LastName = reader.GetString(2);
+                        
                         _department.Add(
-                                 new Department(departName, new Employee() { Name = empName, LastName = empLastName }));
+                                 new Department(Department, new Employee() { Name = FirstName, LastName = LastName }));
                     }
                 }
+
                 reader.Close();
+
+                return _department;
             }
         }
-    
-    //public void Truncate()
-    //{
-    //    using (SqlConnection connection = new SqlConnection(connectionString))
-    //    {
-    //        connection.Open();
-    //        SqlCommand command = new SqlCommand(sqlExpression, connection);
-    //        int number = command.ExecuteNonQuery();
-    //    }
-    //}
+
+        public ObservableCollection<Department> Truncate()
+        {
+            string sqlQuery = @"TRUNCATE TABLE Lesson7";
+
+            Connect(sqlQuery);
+            _department.Clear();
+
+            return _department;
+        }
     }
 }

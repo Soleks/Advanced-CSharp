@@ -48,12 +48,9 @@ namespace Lesson_7
             return _department;
         }
 
-        public void Edit()
-        {
-            
-        }
 
-        public void Delete(object o)
+
+        public ObservableCollection<Department> Delete(object o)
         {
             Department dep = o as Department ;
 
@@ -61,16 +58,20 @@ namespace Lesson_7
             {
                _client.Delete(dep);
             }
+
+            _department.Remove(dep);
+
+            return _department;
         }
 
-        public void Select()
+        public ObservableCollection<Department> Select()
         {
-            _client.Select();
+            return _client.Select();
         }
 
-        public void RemoveAll()
+        public ObservableCollection<Department> Truncate()
         {
-
+            return _client.Truncate();
         }
 
     }
