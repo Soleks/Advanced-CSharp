@@ -1,0 +1,13 @@
+C:\Users\Soleks\source\repos\WCFService\WcfService_\bin\WcfService_.dll.config
+C:\Users\Soleks\source\repos\WCFService\WcfService_\bin\WcfService_.dll
+C:\Users\Soleks\source\repos\WCFService\WcfService_\bin\WcfService_.pdb
+C:\Users\Soleks\source\repos\WCFService\WcfService_\obj\Debug\WcfService_.csprojResolveAssemblyReference.cache
+C:\Users\Soleks\source\repos\WCFService\WcfService_\obj\Debug\WcfService_.csproj.CoreCompileInputs.cache
+C:\Users\Soleks\source\repos\WCFService\WcfService_\obj\Debug\WcfService_.dll
+C:\Users\Soleks\source\repos\WCFService\WcfService_\obj\Debug\WcfService_.pdb
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\bin\WcfService_.dll.config
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\bin\WcfService_.dll
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\bin\WcfService_.pdb
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.csproj.CoreCompileInputs.cache
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.dll
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.pdb
