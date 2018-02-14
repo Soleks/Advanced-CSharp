@@ -46,12 +46,28 @@ namespace Lesson_7
 
             for (int i = 0; i < list.Length; i++)
             {
-                list[i] = ;
+                foreach (var item in d)
+                {
+                  // list[i].DepartmentName = item.DepartmentName;
+
+                    list[i] = new ServiceReference1.Department();
+                    list[i].Employee = new ServiceReference1.Employee[item.Employee.Count];
+
+                    list[i].DepartmentName = item.DepartmentName;
+
+                    foreach (var iE in item.Employee)
+                    {
+                        for (int j = 0; j < list[i].Employee.Length; j++)
+                        {
+                            list[i].Employee[j] = new ServiceReference1.Employee { Name = iE.Name };
+                            list[i].Employee[j].LastName = iE.LastName;
+                        }
+                    }
+                }
             }
 
             var list_ = _service.RemoveDepAndEmp(o, list);
-            var a =  DepartmentConvertor(list_);
-
+            var a = DepartmentConvertor(list_);
             return a;
         }
 
@@ -80,7 +96,6 @@ namespace Lesson_7
              !string.IsNullOrEmpty(Dep) &&
              !string.IsNullOrEmpty(EmpName) &&
              !string.IsNullOrEmpty(EmpLastName);
-
 
         private void ExecuteCommand(object o) => 
             DepEmp = Add(Dep, EmpName, EmpLastName);

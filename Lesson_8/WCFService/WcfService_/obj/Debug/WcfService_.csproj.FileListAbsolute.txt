@@ -12,3 +12,17 @@ C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj
 C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.dll
 C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.pdb
 C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.csprojResolveAssemblyReference.cache
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\bin\WcfService_.dll.config
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\bin\WcfService_.dll
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\bin\WcfService_.pdb
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.csprojResolveAssemblyReference.cache
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.csproj.CoreCompileInputs.cache
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.dll
+C:\Users\soleksenko\Downloads\Advanced-CSharp-master\Lesson_8\WCFService\WcfService_\obj\Debug\WcfService_.pdb
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\bin\WcfService_.dll.config
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\bin\WcfService_.dll
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\bin\WcfService_.pdb
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\obj\Debug\WcfService_.csprojResolveAssemblyReference.cache
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\obj\Debug\WcfService_.csproj.CoreCompileInputs.cache
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\obj\Debug\WcfService_.dll
+C:\Users\Soleks\Downloads\WCFService-20180214T175841Z-001\WCFService\WcfService_\obj\Debug\WcfService_.pdb

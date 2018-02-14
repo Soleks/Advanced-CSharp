@@ -27,18 +27,17 @@ namespace WcfService_
             return _department;
         }
 
-        public List<Department> RemoveDepAndEmp(object o, ObservableCollection<Department> d)
+        public List<Department> RemoveDepAndEmp(object o, List<Department> d)
         {
+            int index;
 
-            //int index;
+            if (int.TryParse(o.ToString(), out index) &&
+                index >= 0 && index < d.Count)
+            {
+                d.RemoveAt(index);
+            }
 
-            //if (int.TryParse(o.ToString(), out index) &&
-            //    index >= 0 && index < _department.Count)
-            //{
-            //    _department.RemoveAt(index);
-            //}
-
-            return _department;
+            return d;
         }
 
         //public ObservableCollection<DepartmentService> Insert(
