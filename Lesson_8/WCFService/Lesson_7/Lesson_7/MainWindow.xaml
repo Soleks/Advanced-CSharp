@@ -40,8 +40,8 @@
             Margin="137,182,0,0"
             VerticalAlignment="Top"
             Width="75"
-            Command="{Binding RemoveToDbCommand}"
-            CommandParameter="{Binding ElementName=listBox, Path=SelectedValue}" />
+            Command="{Binding RemoveCommand}"
+            CommandParameter="{Binding ElementName=listBox, Path=SelectedIndex}" />
         <TextBox
             Name="empName"
             HorizontalAlignment="Left"

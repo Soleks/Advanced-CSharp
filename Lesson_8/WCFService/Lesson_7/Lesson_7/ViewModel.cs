@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using System.Collections.Generic;
+using System.Windows.Documents;
 
 namespace Lesson_7
 {
@@ -28,13 +29,35 @@ namespace Lesson_7
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Department> DepartmentConvertor(
-            string Dep, 
-            string EmpName, 
+        private ObservableCollection<Department> Add(
+            string Dep,
+            string EmpName,
             string EmpLastName)
         {
-            var list = _service.SetEmployeeData(Dep, EmpName, EmpLastName);
+            return DepartmentConvertor(
+                _service.SetEmployeeData(Dep, EmpName, EmpLastName));
+        }
 
+        private ObservableCollection<Department> Delete(
+            object o, 
+            ObservableCollection<Department> d)
+        {
+            Lesson_7.ServiceReference1.Department[] list = new ServiceReference1.Department[d.Count];
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                list[i] = ;
+            }
+
+            var list_ = _service.RemoveDepAndEmp(o, list);
+            var a =  DepartmentConvertor(list_);
+
+            return a;
+        }
+
+        private ObservableCollection<Department> DepartmentConvertor(
+          Lesson_7.ServiceReference1.Department[] list)
+        {
             foreach (var item in list)
             {
                 _department.Add(new Department(item.DepartmentName, new Employee()
@@ -60,13 +83,13 @@ namespace Lesson_7
 
 
         private void ExecuteCommand(object o) => 
-            DepEmp = DepartmentConvertor(Dep, EmpName, EmpLastName);
+            DepEmp = Add(Dep, EmpName, EmpLastName);
             
         public ICommand RemoveCommand => _addRemoveCommand ?? (
             _addRemoveCommand = new ActionCommand(
                 Remove, CanRemoveCommand));
         private bool CanRemoveCommand(object obj) => DepEmp.Count > 0;
-        private void Remove(object o) => DepEmp = _service.RemoveDepAndEmp(o); //_model.RemoveDepAndEmp(o);
+        private void Remove(object o) => DepEmp = Delete(o, _department);
         
 
         //public ICommand RemoveToDbCommand => _removeToDbCommand ?? (

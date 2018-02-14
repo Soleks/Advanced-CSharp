@@ -25,9 +25,13 @@ namespace WcfService_
                lastName);
         }
 
-        public List<Department> RemoveDepAndEmp(object o)
+        public List<Department> RemoveDepAndEmp(
+            object o, 
+            List<Department> d)
         {
-            return _model.RemoveDepAndEmp(o);
+            _model = new ModelService();
+
+            return _model.RemoveDepAndEmp(o, d);
         }
 
         public string GetData(int value)

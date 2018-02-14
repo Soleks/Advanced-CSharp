@@ -15,67 +15,6 @@ namespace Lesson_7.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfService_")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Department", Namespace="http://schemas.datacontract.org/2004/07/WcfService_")]
     [System.SerializableAttribute()]
     public partial class Department : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -206,12 +145,6 @@ namespace Lesson_7.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        Lesson_7.ServiceReference1.CompositeType GetDataUsingDataContract(Lesson_7.ServiceReference1.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<Lesson_7.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Lesson_7.ServiceReference1.CompositeType composite);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Sum", ReplyAction="http://tempuri.org/IService1/SumResponse")]
         int Sum();
         
@@ -225,15 +158,14 @@ namespace Lesson_7.ServiceReference1 {
         System.Threading.Tasks.Task<Lesson_7.ServiceReference1.Department[]> SetEmployeeDataAsync(string dep, string name, string lastName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveDepAndEmp", ReplyAction="http://tempuri.org/IService1/RemoveDepAndEmpResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Lesson_7.ServiceReference1.CompositeType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Lesson_7.ServiceReference1.Department[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Lesson_7.ServiceReference1.Department))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Lesson_7.ServiceReference1.Employee[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Lesson_7.ServiceReference1.Employee))]
-        void RemoveDepAndEmp(object o);
+        Lesson_7.ServiceReference1.Department[] RemoveDepAndEmp(object o, Lesson_7.ServiceReference1.Department[] d);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveDepAndEmp", ReplyAction="http://tempuri.org/IService1/RemoveDepAndEmpResponse")]
-        System.Threading.Tasks.Task RemoveDepAndEmpAsync(object o);
+        System.Threading.Tasks.Task<Lesson_7.ServiceReference1.Department[]> RemoveDepAndEmpAsync(object o, Lesson_7.ServiceReference1.Department[] d);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -271,14 +203,6 @@ namespace Lesson_7.ServiceReference1 {
             return base.Channel.GetDataAsync(value);
         }
         
-        public Lesson_7.ServiceReference1.CompositeType GetDataUsingDataContract(Lesson_7.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<Lesson_7.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Lesson_7.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
-        }
-        
         public int Sum() {
             return base.Channel.Sum();
         }
@@ -295,12 +219,12 @@ namespace Lesson_7.ServiceReference1 {
             return base.Channel.SetEmployeeDataAsync(dep, name, lastName);
         }
         
-        public void RemoveDepAndEmp(object o) {
-            base.Channel.RemoveDepAndEmp(o);
+        public Lesson_7.ServiceReference1.Department[] RemoveDepAndEmp(object o, Lesson_7.ServiceReference1.Department[] d) {
+            return base.Channel.RemoveDepAndEmp(o, d);
         }
         
-        public System.Threading.Tasks.Task RemoveDepAndEmpAsync(object o) {
-            return base.Channel.RemoveDepAndEmpAsync(o);
+        public System.Threading.Tasks.Task<Lesson_7.ServiceReference1.Department[]> RemoveDepAndEmpAsync(object o, Lesson_7.ServiceReference1.Department[] d) {
+            return base.Channel.RemoveDepAndEmpAsync(o, d);
         }
     }
 }

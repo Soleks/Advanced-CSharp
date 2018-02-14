@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace WcfService_
 {
     internal class ModelService
     {
-        private List<Department> _department;
+        private List<Department> _department = new List<Department>();
 
         private Service1 _service;
 
         public ModelService()
         {
-            _department = new List<Department>();
+            //_department = new List<Department>();
             _service = new Service1();
         }
 
@@ -26,15 +27,16 @@ namespace WcfService_
             return _department;
         }
 
-        public List<Department> RemoveDepAndEmp(object o)
+        public List<Department> RemoveDepAndEmp(object o, ObservableCollection<Department> d)
         {
-            int index;
 
-            if (int.TryParse(o.ToString(), out index) &&
-                index >= 0 && index < _department.Count)
-            {
-                _department.RemoveAt(index);
-            }
+            //int index;
+
+            //if (int.TryParse(o.ToString(), out index) &&
+            //    index >= 0 && index < _department.Count)
+            //{
+            //    _department.RemoveAt(index);
+            //}
 
             return _department;
         }

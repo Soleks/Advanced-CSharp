@@ -35,3 +35,4 @@ C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\Lesson_7\Lesson
 C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\Lesson_7\Lesson_7\obj\Debug\Lesson_7.csproj.CoreCompileInputs.cache
 C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\Lesson_7\Lesson_7\obj\Debug\Lesson_7.exe
 C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\Lesson_7\Lesson_7\obj\Debug\Lesson_7.pdb
+C:\Users\Soleks\source\repos\Advanced-CSharp\Lesson_8\WCFService\Lesson_7\Lesson_7\obj\Debug\Lesson_7.csprojResolveAssemblyReference.cache

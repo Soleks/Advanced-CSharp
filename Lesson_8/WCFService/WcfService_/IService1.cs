@@ -24,7 +24,7 @@ namespace WcfService_
         List<Department> SetEmployeeData(string dep, string name, string lastName);
 
         [OperationContract]
-        List<Department> RemoveDepAndEmp(object o);
+        List<Department> RemoveDepAndEmp(object o, List<Department> d);
     }
 
     [DataContract]
